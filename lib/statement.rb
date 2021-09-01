@@ -8,7 +8,7 @@ class Statement < Transaction
   end
 
   def store
-    @transactions
+    [@transactions.sum]
   end
 
   def update(add)
