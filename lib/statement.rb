@@ -1,12 +1,17 @@
-class Statement
-  attr_reader :balance
+require_relative 'transaction'
 
-  def initialize
-    @transactions = []
-    @balance = balance
+class Statement < Transaction
+  attr_accessor :transactions
+
+  def initialize(transactions = [])
+    @transactions = transactions
   end
 
   def store
     @transactions
+  end
+
+  def update(add)
+    @transactions << add
   end
 end
