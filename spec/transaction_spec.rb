@@ -18,5 +18,9 @@ describe Transaction do
       transaction.deposit(200)
       expect {transaction.withdraw(90)}.to change {transaction.balance }.by -90
     end
+    it 'only reduces balance by amount withdrawn if sufficient funds' do
+      transaction.deposit(200)
+      expect { transaction.withdraw(220) }.to raise_error 'Insufficient funds'
+    end
   end
 end
