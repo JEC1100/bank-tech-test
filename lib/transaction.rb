@@ -10,17 +10,16 @@ class Transaction
   end
 
   def deposit(amount)
-    unless invalid?(amount)
+    raise 'Invalid input' if invalid?(amount)
+    else
       @balance += amount
-    else raise 'Invalid input'
     end
   end
 
   def withdraw(amount)
-    if @balance > amount
+    raise 'Insufficient funds' if @balance < amount
+    else
       @balance -= amount
-    else raise 'Insufficient funds'
     end
   end
 end
-
