@@ -1,11 +1,11 @@
 class Transaction
-  
-  def initialize(bal=0)
-    @bal = bal
+  attr_reader :balance
+
+  def initialize
+    @balance = 0
   end
 
-  def balance
-    @bal
+  def deposit(amount)
+    @balance += amount
   end
-
 end
