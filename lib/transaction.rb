@@ -8,4 +8,11 @@ class Transaction
   def deposit(amount)
     @balance += amount
   end
+
+  def withdraw(amount)
+    if @balance > amount
+      @balance -= amount
+    else raise 'Insufficient funds'
+    end
+  end
 end
