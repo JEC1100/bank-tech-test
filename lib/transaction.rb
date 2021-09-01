@@ -5,8 +5,15 @@ class Transaction
     @balance = 0
   end
 
+  def invalid?(input)
+    input.is_a?(Float) || input.is_a?(Integer) == false
+  end
+
   def deposit(amount)
-    @balance += amount
+    unless invalid?(amount)
+      @balance += amount
+    else raise 'Invalid input'
+    end
   end
 
   def withdraw(amount)
@@ -16,3 +23,4 @@ class Transaction
     end
   end
 end
+

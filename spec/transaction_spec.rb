@@ -7,6 +7,9 @@ describe Transaction do
     it 'starts with zero bal' do
       expect(transaction.balance).to eq 0
     end
+    it 'only accepts floats or integers' do
+      expect { transaction.deposit("Donkey") }.to raise_error 'Invalid input'
+    end
   end
   context '#deposit' do
     it 'increases balance by deposited amount' do
