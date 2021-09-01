@@ -2,7 +2,7 @@ class Transaction
   attr_reader :balance
 
   def initialize
-    @balance = 0
+    @balance = 0.00
   end
 
   def invalid?(input)
@@ -10,16 +10,14 @@ class Transaction
   end
 
   def deposit(amount)
-    raise 'Invalid input' if invalid?(amount)
-    else
-      @balance += amount
-    end
+    raise 'Invalid input' if invalid? amount
+
+    @balance += amount
   end
 
   def withdraw(amount)
     raise 'Insufficient funds' if @balance < amount
-    else
-      @balance -= amount
-    end
+
+    @balance -= amount
   end
 end
