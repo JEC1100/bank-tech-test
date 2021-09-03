@@ -1,5 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'date'
+require 'timecop'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                  SimpleCov::Formatter::Console
